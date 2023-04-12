@@ -28,10 +28,24 @@ module.exports = class Machine {
               let difference = price - this.depositedMoney
               return `Your deposit is insufficient.  Please add Rs ${difference} for this item`
           }else{
-
+            let change = this.depositedMoney - price
+            let changeBills = this.changeCalculator(change)
+            let receipt = {item : name , change : changeBills}
+            return receipt
           }
       }else{
           return "The item you selected is unavailable"
       }  
       }
+
+    changeCalculator = (amount) => {
+        let bills = []
+        for (const bill of this.billsAccepted) {
+            while(amount >= bill){
+                amount -= bill
+                bills.push(bill)
+            }
+        }
+        return bills
+    }
 };
