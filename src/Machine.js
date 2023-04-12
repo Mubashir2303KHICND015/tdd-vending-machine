@@ -48,4 +48,9 @@ module.exports = class Machine {
         }
         return bills
     }
+
+    cancel = () => {
+        let change = this.changeCalculator(this.depositedMoney)
+        return {change : change}
+    }
 };
