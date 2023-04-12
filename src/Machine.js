@@ -5,6 +5,7 @@ module.exports = class Machine {
     }
 
     selections = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}]
+    resetMachine = () => this.depositedMoney = 0
     seeSelections = ()=>this.selections
     deposit = (money)=>{
         if(this.billsAccepted.includes(money)){
