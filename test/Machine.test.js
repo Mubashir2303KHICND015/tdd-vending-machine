@@ -4,7 +4,7 @@ describe('the vending machine', () => {
     it('should have items to purchase', () => {
         // setup
         const machine = new Machine();
-        const expected = [{'crisps': 70}, {'chocolate': 350}, {'mints': 130}];
+        const expected = [{'crisps': 70}, {'chocolate': 355}, {'mints': 130}];
 
         // exercise
         const actual = machine.seeSelections();
@@ -89,6 +89,20 @@ describe('the vending machine', () => {
 
         // exercise
         let actual = machine.cancel()
+
+        // assert
+        expect(actual).toEqual(expected);
+    });
+
+    it('should return money on cancel button', () => {
+        // setup
+        const machine = new Machine();
+        machine.resetMachine()
+        const expected = 'Cannot return proper change.  Please choose another item or cancel the transaction';
+        machine.deposit(500)
+
+        // exercise
+        let actual = machine.selectItem("chocolate")
 
         // assert
         expect(actual).toEqual(expected);

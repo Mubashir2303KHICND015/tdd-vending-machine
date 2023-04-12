@@ -4,7 +4,7 @@ module.exports = class Machine {
         this.billsAccepted = [500,100,50,20,10] 
     }
 
-    selections = [{'crisps': 70}, {'chocolate': 350}, {'mints': 130}]
+    selections = [{'crisps': 70}, {'chocolate': 355}, {'mints': 130}]
 
     resetMachine = () => this.depositedMoney = 0
 
