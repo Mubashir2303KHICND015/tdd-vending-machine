@@ -94,7 +94,7 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
-    it('should return money on cancel button', () => {
+    it('should cancel transaction if return amount is not proper', () => {
         // setup
         const machine = new Machine();
         machine.resetMachine()

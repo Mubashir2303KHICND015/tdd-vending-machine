@@ -31,7 +31,7 @@ module.exports = class Machine {
             let change = this.depositedMoney - price
             let changeBills = this.changeCalculator(change)
             let receipt = {item : name , change : changeBills}
-            return receipt
+            return typeof changeBills === 'string' ? 'Cannot return proper change.  Please choose another item or cancel the transaction' : receipt
           }
       }else{
           return "The item you selected is unavailable"
@@ -46,7 +46,7 @@ module.exports = class Machine {
                 bills.push(bill)
             }
         }
-        return bills
+        return amount !== 0 ? "invalid" : bills
     }
 
     cancel = () => {
