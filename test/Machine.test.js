@@ -80,4 +80,18 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
+    it('should return money on cancel button', () => {
+        // setup
+        const machine = new Machine();
+        machine.resetMachine()
+        const expected = {change : [100]};
+        machine.deposit(100)
+
+        // exercise
+        let actual = machine.cancel()
+
+        // assert
+        expect(actual).toEqual(expected);
+    });
+
 });
