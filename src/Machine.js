@@ -1,10 +1,10 @@
 module.exports = class Machine {
     constructor() {
         this.depositedMoney = 0
-        this.billsAccepted = [10,20,30,40,50,100] 
+        this.billsAccepted = [500,100,50,20,10] 
     }
 
-    selections = [{'crisps': 100}, {'chocolate': 350}, {'mints': 130}]
+    selections = [{'crisps': 70}, {'chocolate': 350}, {'mints': 130}]
 
     resetMachine = () => this.depositedMoney = 0
 
@@ -15,7 +15,7 @@ module.exports = class Machine {
             this.depositedMoney += money
             return `You have deposited Rs ${this.depositedMoney}`
         }else{
-            return "Please input bills like 10,20,30 etc"
+            return "Please input bills like 10,20,50 etc"
         }
     }
 
@@ -27,6 +27,8 @@ module.exports = class Machine {
           if(price > this.depositedMoney){
               let difference = price - this.depositedMoney
               return `Your deposit is insufficient.  Please add Rs ${difference} for this item`
+          }else{
+
           }
       }else{
           return "The item you selected is unavailable"

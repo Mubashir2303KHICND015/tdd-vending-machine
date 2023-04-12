@@ -4,7 +4,7 @@ describe('the vending machine', () => {
     it('should have items to purchase', () => {
         // setup
         const machine = new Machine();
-        const expected = [{'crisps': 100}, {'chocolate': 350}, {'mints': 130}];
+        const expected = [{'crisps': 70}, {'chocolate': 350}, {'mints': 130}];
 
         // exercise
         const actual = machine.seeSelections();
@@ -61,6 +61,20 @@ describe('the vending machine', () => {
 
         // exercise
         let actual = machine.selectItem("mints")
+
+        // assert
+        expect(actual).toEqual(expected);
+    });
+
+    it('should return change on successfull transaction', () => {
+        // setup
+        const machine = new Machine();
+        machine.resetMachine()
+        const expected = {item : 'crisps', change : [20,10]};
+        machine.deposit(100)
+
+        // exercise
+        let actual = machine.selectItem("crisps")
 
         // assert
         expect(actual).toEqual(expected);
