@@ -52,4 +52,18 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
+    it('should check if item price is more than money deposited', () => {
+        // setup
+        const machine = new Machine();
+        machine.resetMachine()
+        const expected = "Your deposit is insufficient.  Please add Rs 30 for this item";
+        machine.deposit(100)
+
+        // exercise
+        let actual = machine.selectItem("mints")
+
+        // assert
+        expect(actual).toEqual(expected);
+    });
+
 });

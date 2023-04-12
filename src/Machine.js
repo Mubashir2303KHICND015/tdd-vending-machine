@@ -5,8 +5,11 @@ module.exports = class Machine {
     }
 
     selections = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}]
+
     resetMachine = () => this.depositedMoney = 0
+
     seeSelections = ()=>this.selections
+
     deposit = (money)=>{
         if(this.billsAccepted.includes(money)){
             this.depositedMoney += money
@@ -15,6 +18,7 @@ module.exports = class Machine {
             return "Please input bills like 10,20,30 etc"
         }
     }
+    
     selectItem = (name)=>{
         let available = Object.keys(this.selections)
         if(!available.includes(name)){
