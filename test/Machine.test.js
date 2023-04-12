@@ -4,7 +4,7 @@ describe('the vending machine', () => {
     it('should have items to purchase', () => {
         // setup
         const machine = new Machine();
-        const expected = [{'crisps': 100}, {'chocolate': 350}, {'mints': 70}];
+        const expected = [{'crisps': 100}, {'chocolate': 350}, {'mints': 130}];
 
         // exercise
         const actual = machine.seeSelections();
