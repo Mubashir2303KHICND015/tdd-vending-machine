@@ -15,4 +15,12 @@ module.exports = class Machine {
             return "Please input bills like 10,20,30 etc"
         }
     }
+    selectItem = (name)=>{
+        let available = Object.keys(this.selections)
+        if(!available.includes(name)){
+            return "The item you selected is unavailable"
+        }else{
+
+        }
+    }
 };
