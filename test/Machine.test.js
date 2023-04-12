@@ -39,4 +39,17 @@ describe('the vending machine', () => {
         expect(actual).toEqual(expected);
     });
 
+    it('should check if item is available', () => {
+        // setup
+        const machine = new Machine();
+        machine.resetMachine()
+        const expected = "The item you selected is unavailable";
+
+        // exercise
+        let actual = machine.selectItem("gum")
+
+        // assert
+        expect(actual).toEqual(expected);
+    });
+
 });
