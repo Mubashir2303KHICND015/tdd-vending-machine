@@ -3,13 +3,13 @@ module.exports = class Machine {
         this.depositedMoney = 0
         this.billsAccepted = [500,100,50,20,10] 
     }
-
+    //This is the Array of Available Items
     selections = [{'crisps': 70}, {'chocolate': 355}, {'mints': 130}]
-
+    //This Method resets state to perfrom other tests
     resetMachine = () => this.depositedMoney = 0
-
-    seeSelections = ()=>this.selections
-
+    //This Method displays array of all available items
+    seeSelections = () => this.selections
+    //This Method lets user deposit money
     deposit = (money)=>{
         if(this.billsAccepted.includes(money)){
             this.depositedMoney += money
@@ -18,7 +18,7 @@ module.exports = class Machine {
             return "Please input bills like 10,20,50 etc"
         }
     }
-
+    //This Method lets user buy items they like
     selectItem = (name)=>{
         let availableItems = this.selections.map(item => Object.keys(item)[0])
         if(availableItems.includes(name)){
@@ -37,7 +37,7 @@ module.exports = class Machine {
           return "The item you selected is unavailable"
       }  
       }
-
+    //This Method calculates change 
     changeCalculator = (amount) => {
         let bills = []
         for (const bill of this.billsAccepted) {
@@ -48,7 +48,7 @@ module.exports = class Machine {
         }
         return amount !== 0 ? "invalid" : bills
     }
-
+    //This Method lets user cancel transaction and return their deposited money
     cancel = () => {
         let change = this.changeCalculator(this.depositedMoney)
         return {change : change}
